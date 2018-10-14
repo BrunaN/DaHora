@@ -26,3 +26,15 @@ module.exports.login = function(req, res){
     );
 };
 
+module.exports.checkToken = function(req, res){
+    jwt.verify(req.query.token, 'daHora',
+        function(err, decoded){
+            if(err){
+                res.status(401).json({message: "Não autorizado"})
+            }else{
+                next()
+            }
+        }
+    )
+};
+

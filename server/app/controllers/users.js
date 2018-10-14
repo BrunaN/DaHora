@@ -36,7 +36,7 @@ module.exports.getUser = function(req, res){
                 name: user.name,
                 email: user.email,
                 enrollment: user.enrollment,
-                graduation: user.graduation,
+                graduation: user.graduation
             });
         }
     ).catch(
