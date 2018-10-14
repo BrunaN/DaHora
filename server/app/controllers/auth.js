@@ -1,5 +1,5 @@
 let bcrypt = require('bcrypt');
-let jwt = require('jasonwebtoken');
+let jwt = require('jsonwebtoken');
 
 let User = require('../models/user');
 
@@ -8,7 +8,7 @@ module.exports.login = function(req, res){
 
     promise.then(
         function(user){
-            if(bcrypt.compareSync(req.body.senha, user.senha)){
+            if(bcrypt.compareSync(req.body.password, user.password)){
                 let token = jwt.sign({id: user._id}, 'daHora');
                 res.status(200).json({
                     id: user._id,
@@ -26,7 +26,7 @@ module.exports.login = function(req, res){
     );
 };
 
-module.exports.checkToken = function(req, res){
+module.exports.checkToken = function(req, res, next){
     jwt.verify(req.query.token, 'daHora',
         function(err, decoded){
             if(err){

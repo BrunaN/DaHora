@@ -6,7 +6,7 @@ module.exports = function(){
     let app = express();
 
     app.set("port", 3000);
-    app.use(bodyParser.jason());
+    app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false}));
 
     userRoutes(app);
