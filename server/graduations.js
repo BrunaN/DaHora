@@ -1,7 +1,7 @@
 //Para executar basta fazer mongo < estacoes.js ou no Linux: ./mongo < estacoes.js
 
 use daHora;
-db.graduations.drop();
+//db.graduations.drop();
 
 db.graduations.insert({
     name: "Ciência da Computação",
