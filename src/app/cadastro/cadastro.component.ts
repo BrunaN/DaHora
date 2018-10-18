@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
+import { User } from '../models/user.model';
+import { UserService } from '../services/User.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -7,21 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroComponent implements OnInit {
 
-  constructor() {
-    
-   }
+  _id: string;
+  name: string;
+  email: string;
+  graduation: number;
+  enrollment: number;
+  password: string;
+  confirmPassword: string;
 
-  ngOnInit() {
-    
-  }
+  constructor( private service: UserService, private loginService: LoginService ) {  }
 
-  pega(nome:string, matricula:string, curso:number, email:string, senha:string, senha2:string) {
-    console.log(nome, matricula, curso, email, senha, senha2);
-    if(nome!="" && matricula!="" && email!=""  && senha!="" && senha2!=""){
-      console.log("tudo cheio");
-      if(senha==senha2){
-        console.log("senha certa");
-        //aqui fica a função de enviar os dados para o servidor.
+  ngOnInit() {  }
+
+  addUser(event) {
+    event.preventDefault();
+    if (this.name != '' && this.email != '' && this.graduation != undefined  && this.enrollment != undefined && this.password != '' && this.confirmPassword != '') {
+      if (this.password == this.confirmPassword) {
+        let user = new User(this._id, this.name, this.email, this.graduation, this.enrollment, this.password);
+        console.log(user);
       }
     }
   }
