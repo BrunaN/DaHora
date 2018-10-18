@@ -1,0 +1,13 @@
+
+<div  id="login">
+    <form>
+      <div class="form-group">
+        <input type="email" #email class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite o seu e-mail:">
+      </div>
+      <div class="form-group">
+        <input type="password" #senha class="form-control" id="exampleInputPassword1" placeholder="Digite a sua senha:">
+        <a id="aviso" routerLink="/cadastro">Não lembra da sua senha? Clique aqui!</a>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="login(email.value,senha.value)">Entrar</button>
+    </form>
+    </div>

@@ -1,0 +1,21 @@
+#login{
+    justify-content: center;
+    display: flex;
+    top: 40%;
+    left: 40%;
+    position: absolute;
+}
+
+#aviso{
+    color: rgb(49, 49, 49);
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#aviso:hover{
+    color: coral;
+}
+
+input{
+    width: 100%;
+}
