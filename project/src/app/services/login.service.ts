@@ -8,42 +8,39 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class LoginService {
 
-    url: string = 'http://localhost:3000/api/users';
+    url: string = 'http://localhost:3000/api/user/login';
     user: User;
 
     constructor ( private http: Http ) {  }
 
-    initial(){
-        let text = window.localStorage.getItem("user");
-        if(text){
-            let res = JSON.parse(text);
-            this.user = new User(res._id, res.name, res.email, res.graduation, res.enrollment, res.password);
+    setToken(token) {
+        localStorage.setItem("token", token);
+    }
+
+    getToken() {
+        return localStorage.getItem("token");
+    }
+
+    hasToken() {
+        if (localStorage.getItem("token")) {
+            return localStorage.getItem("token");
         }
     }
 
-    local(user:User){
-        this.user = user;
-        window.localStorage.setItem("user", JSON.stringify(user));
+    removeToken() {
+        localStorage.removeItem("token");
     }
 
     login(email, password){
-        return this.http.post(this.url, {'email': email, 'password': password})
-            .map((response: Response) => {
-                let res = response.json();
-                let user = new User(res._id, res.name, res.email, res.graduation, res.enrollment, res.password);
-                this.local(user);
-                return user;
-            })
-            .catch((error: Response) => Observable.throw(error));
-    };
-
-    userLogged(){
-        return this.user;
-    };
-
-    logout(){
-        this.user = undefined;
-        window.localStorage.removeItem('user');
-    };
+        return this.http.post(this.url, {
+            email,
+            password
+        }).map((response: Response) => {
+            let res =  response.json();
+            console.log(res.token);
+            this.setToken(res.token);
+            return res
+        });
+    }
 
 }

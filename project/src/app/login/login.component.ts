@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
+import { LoginService } from '../services/login.service';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -7,18 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  email: string;
+  password: string;
+
+  user: User;
+
+  constructor( private loginService: LoginService ) { }
 
   ngOnInit() {
   }
 
-login(email:string,senha:string){
-  if(email!="" && senha!=""){
-    console.log("tudo ok", email, senha);
-    //aqui fica função para mandar dados pro login
-  }else{
-    console.log("falta algo");
+  login(event) {
+    event.preventDefault();
+    if (this.email != '' && this.password != '') {
+      console.log(this.email, this.password);
+      event.preventDefault();
+      this.loginService.login(this.email, this.password)
+        .subscribe(data => {
+          // colocar pra retornar pra página onde o usuário tava antes
+        },
+          error => {
+            console.log(error);
+          }
+        );
+    }
   }
-}
 
 }

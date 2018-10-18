@@ -29,6 +29,12 @@ export class CadastroComponent implements OnInit {
       if (this.password == this.confirmPassword) {
         let user = new User(this._id, this.name, this.email, this.graduation, this.enrollment, this.password);
         console.log(user);
+        this.service.addUser(user)
+                    .subscribe(data => {
+                      }, error => {
+
+                      }
+                    );
       }
     }
   }

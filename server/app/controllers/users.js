@@ -41,8 +41,9 @@ module.exports.getUser = function(req, res){
                 id: user._id,
                 name: user.name,
                 email: user.email,
-                enrollment: user.enrollment,
-                graduation: user.graduation
+                enrollment: user.enrollment
+                // ,
+                // graduation: user.graduation
             });
         }
     ).catch(
@@ -53,7 +54,9 @@ module.exports.getUser = function(req, res){
 }
 
 module.exports.getUsers = function(req, res){
-    let promise = User.find({}, {'password': 0}).populate('graduation').exec();
+    let promise = User.find({}, {'password': 0})
+    // .populate('graduation')
+    .exec();
     promise.then(
         function(users){
             res.status(201).json(users);

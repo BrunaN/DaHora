@@ -5,11 +5,14 @@ let User = require('../models/user');
 
 module.exports.login = function(req, res){
     let promise = User.findOne({'email' : req.body.email});
-
+    console.log(req.body);
     promise.then(
         function(user){
+            console.log(user);
             if(bcrypt.compareSync(req.body.password, user.password)){
+                console.log("entrou aqui")
                 let token = jwt.sign({id: user._id}, 'daHora');
+                console.log(token);
                 res.status(200).json({
                     id: user._id,
                     token: token,
