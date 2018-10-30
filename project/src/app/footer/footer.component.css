@@ -29,6 +29,7 @@ footer{
 
 .links a:hover{
     color: #ffffff;
+    transition: 0.8s;
 }
 
 .cp{
