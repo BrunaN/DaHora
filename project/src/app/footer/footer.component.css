@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+footer{
+    position: absolute;
+    margin-top: 100px;
+    width: 100vw;
+    bottom: 0;
+}
+
+.links{
+    background-color: #000000;
+    text-align: center;
+    display: block;
+    padding: 18px 0;
+}
+
+.links ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 6px 15px;
+}
+
+.links a{
+    color: #dddddd;
+    padding: 6px;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+.links a:hover{
+    color: #ffffff;
+}
+
+.cp{
+    background-color: #262626;
+    color: #dddddd;
+    padding: 15px 20px;
+    font-size: 12px;
+}

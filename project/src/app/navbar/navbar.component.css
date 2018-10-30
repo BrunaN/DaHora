@@ -1,5 +1,6 @@
 .navbar {
     padding: 20px 170px;
+    border-bottom: 1px solid #dddddd;
 }
 
 .navbar-brand{
@@ -22,9 +23,9 @@
 
 .nav-link{
     float: right;
-    color: #aaa;
+    color: #000000;
 }
 
 .nav-link:hover{
-    color: #000;
+    color: #262626;
 }
