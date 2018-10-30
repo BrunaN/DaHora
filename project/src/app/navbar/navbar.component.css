@@ -1,6 +1,6 @@
 .navbar {
     padding: 20px 170px;
-    border-bottom: 1px solid #dddddd;
+    box-shadow: 1px 1px #eeee;
 }
 
 .navbar-brand{
