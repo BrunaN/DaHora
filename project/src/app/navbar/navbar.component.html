@@ -24,14 +24,27 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <div class="infos">
-          <h3 class="dropdown-header">{{this.loginService.user.name}}</h3>
-          <p class="dropdown-header">{{this.loginService.user.email}}</p>
-          <p class="dropdown-header">{{this.loginService.user.graduation}}</p>
+
+          <h3 class="dropdown-header">
+            {{this.loginService.user.name}}
+          </h3>
+          <p class="dropdown-header">
+            {{this.loginService.user.email}}
+          </p>
+          <p class="dropdown-header">
+            {{this.loginService.user.graduation}}
+          </p>
         </div>
+
         <div class="dropdown-divider"></div>
+
         <a class="dropdown-item" href="#">editar perfil</a>
+        <a class="dropdown-item" href="#">adicionar atividade complementar</a>
+
         <div class="dropdown-divider"></div>
+
         <a (click)="logout($event)" class="dropdown-item">sair</a>
+        
       </div>
     </div>
   </div>

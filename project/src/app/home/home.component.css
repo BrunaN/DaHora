@@ -1,3 +1,16 @@
 .container-fluid{
     padding: 50px 200px;
 }
+
+.list-group{
+    /* max-width: 1000px; */
+    padding: 30px;
+}
+
+.add{
+    padding: 0 30px;
+}
+
+.list-group-item{
+    padding-bottom: 0;
+}
