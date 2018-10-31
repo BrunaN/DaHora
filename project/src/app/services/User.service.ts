@@ -25,10 +25,11 @@ export class UserService {
     }
 
     getUser(token, id) {
-        return this.http.get(this.url + '?token=' + token + '/' + id)
+        return this.http.get(this.url + '/' + id + '?token=' + token )
             .map((response: Response) => {
                 let res = response.json();
                 let user = new User(res._id, res.name, res.email, res.graduation, res.enrollment, res.password);
+                console.log(user);
                 return user;
             })
             .catch((error: Response) => Observable.throw(error));

@@ -15,6 +15,14 @@ export class HomeComponent implements OnInit {
   constructor( private userService: UserService, private loginService: LoginService) { }
 
   ngOnInit() {
+    this.userService.getUser(this.loginService.getToken(), this.loginService.getId())
+        .subscribe(data => {
+          this.user = data;
+        },
+          error => {
+            console.log(error);
+          }
+        );
   }
 
 }

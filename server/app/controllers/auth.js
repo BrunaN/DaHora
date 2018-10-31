@@ -30,9 +30,11 @@ module.exports.login = function(req, res){
 };
 
 module.exports.checkToken = function(req, res, next){
+    console.log(req);
     jwt.verify(req.query.token, 'daHora',
         function(err, decoded){
             if(err){
+                console.log(err);
                 res.status(401).json({message: "Não autorizado"})
             }else{
                 next()
@@ -40,4 +42,3 @@ module.exports.checkToken = function(req, res, next){
         }
     )
 };
-
