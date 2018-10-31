@@ -2,10 +2,11 @@
   <a class="navbar-brand" href="" routerLink="/home">
     <img src="../../assets/img/logo.png" alt="">
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div *ngIf = "!this.loginService.hasToken()" class="collapse navbar-collapse" id="navbarNavDropdown">
+  <div *ngIf="!this.loginService.hasToken()" class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="" routerLink="/login">Login</a>
@@ -15,19 +16,23 @@
       </li>
     </ul>
   </div>
-  <div *ngIf = "this.loginService.hasToken()" class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Minha conta
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <div class="infos">
-        <h3 class="dropdown-header">NOME DA PESSOA</h3>
-        <p class="dropdown-header">email cejnvcreuvicnre mioemnrnv</p>
-        <p class="dropdown-header"> curso da pessoa </p>
+  <div *ngIf="this.loginService.hasToken()" class="drop">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        Minha conta
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="infos">
+          <h3 class="dropdown-header">NOME DA PESSOA</h3>
+          <p class="dropdown-header">email cejnvcreuvicnre mioemnrnv</p>
+          <p class="dropdown-header"> curso da pessoa </p>
+        </div>
+        <a class="dropdown-item" href="#">editar perfil</a>
+        <div class="dropdown-divider"></div>
+        <a (click)="logout()" class="dropdown-item" href="#">sair</a>
       </div>
-      <a class="dropdown-item" href="#">editar perfil</a>
-      <div class="dropdown-divider"></div>
-      <a (click) = "logout()" class="dropdown-item" href="#">sair</a>
     </div>
   </div>
+
 </nav>

@@ -17,6 +17,15 @@
     display: inline;
 }
 
+.drop{
+    width: 100%;
+    display: inline;
+}
+
+.dropdown{
+    float: right;
+}
+
 .nav-item{
     font-size: 19px;
 }
