@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(event) {
-    event.preventDefaul();
+    event.preventDefault();
     this.loginService.removeLocal();
   }
 
