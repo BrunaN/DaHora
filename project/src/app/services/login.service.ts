@@ -4,11 +4,14 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { UserService } from './User.service';
+import { User } from '../models/user.model';
 
 @Injectable()
 export class LoginService {
 
     url: string = 'http://localhost:3000/api/user/login';
+
+    user: User;
 
     constructor ( private http: Http, private userService: UserService ) {  }
 
@@ -37,6 +40,11 @@ export class LoginService {
     removeLocal() {
         window.localStorage.removeItem("token");
         window.localStorage.removeItem("_id");
+    }
+
+    get(user) {
+        this.user = user;
+        console.log(this.user);
     }
 
     login(email, password){

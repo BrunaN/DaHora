@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     this.userService.getUser(this.loginService.getToken(), this.loginService.getId())
         .subscribe(data => {
           this.user = data;
+          this.loginService.get(this.user);
         },
           error => {
             console.log(error);

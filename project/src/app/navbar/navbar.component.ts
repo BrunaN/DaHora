@@ -12,10 +12,14 @@ export class NavbarComponent implements OnInit {
 
   constructor(private loginService: LoginService, private userService: UserService) { }
 
+  user: User;
+
   ngOnInit() {
+    this.user = this.loginService.user;
   }
 
-  logout() {
+  logout(event) {
+    event.preventDefaul();
     this.loginService.removeLocal();
   }
 
