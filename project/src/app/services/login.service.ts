@@ -1,34 +1,42 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { UserService } from './User.service';
 
 @Injectable()
 export class LoginService {
 
     url: string = 'http://localhost:3000/api/user/login';
-    user: User;
 
-    constructor ( private http: Http ) {  }
+    constructor ( private http: Http, private userService: UserService ) {  }
 
     setToken(token) {
-        localStorage.setItem("token", token);
+        window.localStorage.setItem("token", token);
     }
 
     getToken() {
-        return localStorage.getItem("token");
+        return window.localStorage.getItem("token");
+    }
+
+    setId(id) {
+        window.localStorage.setItem("_id", id);
+    }
+
+    getId() {
+        return window.localStorage.getItem("_id");
     }
 
     hasToken() {
-        if (localStorage.getItem("token")) {
-            return localStorage.getItem("token");
+        if (window.localStorage.getItem("token")) {
+            return window.localStorage.getItem("token");
         }
     }
 
-    removeToken() {
-        localStorage.removeItem("token");
+    removeLocal() {
+        window.localStorage.removeItem("token");
+        window.localStorage.removeItem("_id");
     }
 
     login(email, password){
@@ -37,10 +45,10 @@ export class LoginService {
             password
         }).map((response: Response) => {
             let res =  response.json();
-            console.log(res.token);
             this.setToken(res.token);
-            return res
-        });
+            this.setId(res.id);
+            return res;
+        }).catch((error: Response) => Observable.throw(error));
     }
 
 }

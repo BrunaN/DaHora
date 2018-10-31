@@ -17,7 +17,7 @@ module.exports.insertUser = function(req, res){
     promise.then(
         function(user){
             res.status(201).json({
-                id: user._id,
+                _id: user._id,
                 name: user.name,
                 email: user.email,
                 enrollment: user.enrollment,
@@ -38,12 +38,11 @@ module.exports.getUser = function(req, res){
     promise.then(
         function(user){
             res.status(201).json({
-                id: user._id,
+                _id: user._id,
                 name: user.name,
                 email: user.email,
-                enrollment: user.enrollment
-                // ,
-                // graduation: user.graduation
+                enrollment: user.enrollment,
+                graduation: user.graduation
             });
         }
     ).catch(

@@ -3,6 +3,7 @@ import { NgModel } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { User } from '../models/user.model';
 import { Router, RouterModule } from '../../../node_modules/@angular/router';
+import { UserService } from '../services/User.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   user: User;
 
-  constructor( private loginService: LoginService, private router: Router ) { }
+  constructor( private loginService: LoginService, private router: Router, private userService: UserService ) { }
 
   ngOnInit() {
   }
@@ -29,7 +30,9 @@ export class LoginComponent implements OnInit {
       event.preventDefault();
       this.loginService.login(this.email, this.password)
         .subscribe(data => {
-          this.router.navigate(['/home']);
+          if (this.loginService.hasToken()) {
+            this.router.navigate(['/home']);
+          }
         },
           error => {
             console.log(error);

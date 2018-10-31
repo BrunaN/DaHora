@@ -10,11 +10,12 @@ module.exports = function(){
             type: String,
             required: true
         },
-        // graduation:{
-        //     type: mongoose.Schema.ObjectId,
-        //     ref: 'Graduation',
-        //     require: true
-        // },
+        graduation:{
+            // type: mongoose.Schema.ObjectId,
+            // ref: 'Graduation',
+            type: String,
+            require: true
+        },
         enrollment: {
             type: Number,
             required: true
