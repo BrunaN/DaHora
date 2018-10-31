@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { User } from '../models/user.model';
+import { Router, RouterModule } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [RouterModule]
 })
 export class LoginComponent implements OnInit {
 
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   user: User;
 
-  constructor( private loginService: LoginService ) { }
+  constructor( private loginService: LoginService, private router: Router ) { }
 
   ngOnInit() {
   }
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit {
       event.preventDefault();
       this.loginService.login(this.email, this.password)
         .subscribe(data => {
-          // colocar pra retornar pra página onde o usuário tava antes
+          this.router.navigate(['/home']);
         },
           error => {
             console.log(error);

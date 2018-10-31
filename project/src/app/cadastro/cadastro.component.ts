@@ -3,11 +3,13 @@ import { NgModel } from '@angular/forms';
 import { User } from '../models/user.model';
 import { UserService } from '../services/User.service';
 import { LoginService } from '../services/login.service';
+import { Router, RouterModule } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css']
+  styleUrls: ['./cadastro.component.css'],
+  providers: [RouterModule]
 })
 export class CadastroComponent implements OnInit {
 
@@ -19,7 +21,7 @@ export class CadastroComponent implements OnInit {
   password: string;
   confirmPassword: string;
 
-  constructor( private service: UserService, private loginService: LoginService ) {  }
+  constructor( private service: UserService, private loginService: LoginService, private router: Router) {  }
 
   ngOnInit() {  }
 
@@ -31,6 +33,7 @@ export class CadastroComponent implements OnInit {
         console.log(user);
         this.service.addUser(user)
                     .subscribe(data => {
+                        this.router.navigate(['/login']);
                       }, error => {
 
                       }
