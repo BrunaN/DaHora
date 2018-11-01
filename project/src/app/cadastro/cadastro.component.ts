@@ -22,6 +22,7 @@ export class CadastroComponent implements OnInit {
   enrollment: number;
   password: string;
   confirmPassword: string;
+  hours: number = 0;
 
   graduations: Graduation [];
 
@@ -42,7 +43,7 @@ export class CadastroComponent implements OnInit {
     event.preventDefault();
     if (this.name != '' && this.email != '' && this.graduation != undefined  && this.enrollment != undefined && this.password != '' && this.confirmPassword != '') {
       if (this.password == this.confirmPassword) {
-        let user = new User(this._id, this.name, this.email, this.graduation, this.enrollment, this.password);
+        let user = new User(this._id, this.name, this.email, this.graduation, this.enrollment, this.password, this.hours);
         console.log(user);
         this.service.addUser(user)
                     .subscribe(data => {

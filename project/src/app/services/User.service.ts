@@ -17,7 +17,7 @@ export class UserService {
         return this.http.post(this.url, user)
             .map((response: Response) => {
                 let res = response.json();
-                let user = new User(res._id, res.name, res.email, res.graduation, res.enrollment, res.password);
+                let user = new User(res._id, res.name, res.email, res.graduation, res.enrollment, res.password, res.hours);
                 console.log(user);
                 return user;
             })
@@ -28,7 +28,7 @@ export class UserService {
         return this.http.get(this.url + '/' + id + '?token=' + token )
             .map((response: Response) => {
                 let res = response.json();
-                let user = new User(res._id, res.name, res.email, res.graduation, res.enrollment, res.password);
+                let user = new User(res._id, res.name, res.email, res.graduation, res.enrollment, res.password, res.hours);
                 console.log(user);
                 return user;
             })

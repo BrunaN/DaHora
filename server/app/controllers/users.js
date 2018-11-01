@@ -10,7 +10,8 @@ module.exports.insertUser = function(req, res){
         email: req.body.email,
         graduation: req.body.graduation,
         enrollment: req.body.enrollment,
-        password: bcrypt.hashSync(req.body.password, 15)
+        password: bcrypt.hashSync(req.body.password, 15),
+        hours: req.body.hours
     });
 
     let promise = User.create(user);
@@ -21,7 +22,9 @@ module.exports.insertUser = function(req, res){
                 name: user.name,
                 email: user.email,
                 enrollment: user.enrollment,
-                graduation: user.graduation
+                graduation: user.graduation,
+                hours: user.hours
+
             });
         }
     ).catch(
@@ -42,7 +45,8 @@ module.exports.getUser = function(req, res){
                 name: user.name,
                 email: user.email,
                 enrollment: user.enrollment,
-                graduation: user.graduation
+                graduation: user.graduation,
+                hours: user.hours
             });
         }
     ).catch(

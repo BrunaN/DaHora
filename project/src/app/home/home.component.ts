@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
 
   user: User;
 
+  horas: number;
+
   constructor( private userService: UserService, private loginService: LoginService) { }
 
   ngOnInit() {

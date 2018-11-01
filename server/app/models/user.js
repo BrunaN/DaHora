@@ -22,6 +22,10 @@ module.exports = function(){
         password: {
             type: String,
             required: true
+        },
+        hours: {
+            type: Number,
+            required: true
         }
     });
     return mongoose.model('User', schema);
