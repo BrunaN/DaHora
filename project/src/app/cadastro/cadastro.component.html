@@ -11,7 +11,7 @@
       <div class="form-group">
         <select class="form-control" [(ngModel)]="graduation" name="graduation" #graduationInput="ngModel" id="graduationInput">
           <option value="-1" disabled="disabled">Selecione o seu curso:</option>
-          <option *ngFor="let graduation of graduations" value={{graduation.id}}>{{graduation.name}}</option>
+          <option *ngFor="let graduation of graduations" value={{graduation._id}}>{{graduation.name}}</option>
 
           <!-- <option value="1">Ciência de Computação</option>
           <option value="2">Design Digital</option>
