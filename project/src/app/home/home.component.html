@@ -14,7 +14,8 @@
         Você possui {{this.loginService.user.hours}} horas de atividades complementares
       </h4>
       <h4>
-        Você precisa {{this.loginService.user.graduation.hours - this.loginService.user.hours}} horas para completar suas horas de atividades !
+        Você precisa {{this.loginService.user.graduation.hours - this.loginService.user.hours}} horas para completar suas horas de
+        atividades !
       </h4>
     </div>
     <div class="list-group">
@@ -60,9 +61,32 @@
     </div>
   </div>
 
-  <div *ngIf="!this.loginService.hasToken()">
-    <p>
-      Por favor, fazer login !
-    </p>
+  <div class="home" *ngIf="!this.loginService.hasToken()">
+    <div class="row" id="first">
+      <div class="text col-6">
+        O Da Hora é um sistema de cadastro de Atividades Complementares
+      </div>
+      <div class="col img">
+        <img src="../../assets/img/check-form.png" alt="">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col img">
+        <img src="../../assets/img/clock.png" alt="">
+      </div>
+      <div class="text col-6 second">
+        No Da Hora você pode visualizar quantidade de horas de acordo com o necessário para o seu curso!
+      </div>
+    </div>
+
+    <div class="calm">
+      <h2>
+        Quer utilizar o sistema agora mesmo?
+      </h2>
+      <button type="button" class="btn btn-secondary" routerLink="/cadastro">Cadastre-se</button>
+      <button type="button" class="btn btn-outline-secondary" routerLink="/login">Login</button>
+    </div>
+
   </div>
 </div>
