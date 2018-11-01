@@ -34,7 +34,7 @@ module.exports.insertUser = function(req, res){
 module.exports.getUser = function(req, res){
     let id = req.params.id;
 
-    let promise = User.findById(id);
+    let promise = User.findById(id).populate('graduation').exec();
     promise.then(
         function(user){
             res.status(201).json({

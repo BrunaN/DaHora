@@ -4,6 +4,8 @@ import { User } from '../models/user.model';
 import { UserService } from '../services/User.service';
 import { LoginService } from '../services/login.service';
 import { Router, RouterModule } from '../../../node_modules/@angular/router';
+import { Graduation } from '../models/graduation.model';
+import { GraduationService } from '../services/graduation.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -21,7 +23,18 @@ export class CadastroComponent implements OnInit {
   password: string;
   confirmPassword: string;
 
-  constructor( private service: UserService, private loginService: LoginService, private router: Router) {  }
+  graduations: Graduation [];
+
+  constructor( private service: UserService, private loginService: LoginService, private router: Router,
+    private graduationService: GraduationService) {
+    this.graduationService.getGraduations()
+      .subscribe(data => {
+        console.log(data);
+        this.graduations = data;
+      }, error => {
+        // console.log(error);
+      });
+   }
 
   ngOnInit() {  }
 

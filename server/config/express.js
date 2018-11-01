@@ -1,6 +1,7 @@
 let express = require('express');
 
 let userRoutes = require('../app/routes/users');
+let graduationsRoutes = require('../app/routes/graduations');
 
 let bodyParser = require('body-parser');
 
@@ -31,5 +32,6 @@ module.exports = function(){
     app.use(initial);
 
     userRoutes(app);
+    graduationsRoutes(app);
     return app;
 };

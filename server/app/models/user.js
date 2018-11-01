@@ -11,9 +11,8 @@ module.exports = function(){
             required: true
         },
         graduation:{
-            // type: mongoose.Schema.ObjectId,
-            // ref: 'Graduation',
-            type: String,
+            type: mongoose.Schema.ObjectId,
+            ref: 'Graduation',
             require: true
         },
         enrollment: {
