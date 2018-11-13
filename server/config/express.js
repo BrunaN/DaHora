@@ -24,7 +24,6 @@ let initial = function(req, res, next){
 
 module.exports = function(){
     let app = express();
-
     app.set("port", 3000);
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false}));
