@@ -1,0 +1,11 @@
+#cdthrscomp{
+    /* justify-content: center; */
+    display: flex;
+    
+    left: 40%;
+    position: absolute;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    padding-right: 16px;
+  }

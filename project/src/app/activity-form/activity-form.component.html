@@ -1,3 +1,55 @@
-<p>
-  activity-form works!
-</p>
+<div  id="cdthrscomp">
+  <form>
+    <label>
+      Dados do(a) Aluno(a):
+    </label><br>
+    <div class="form-group">
+      <label for="inputNome">Nome:</label>
+      <input type="text" ng-model= "nome" class="form-control" id="inputNome" placeholder="Digite o seu nome:">
+    </div>
+    <div class="form-group">
+      <label for="inputMatricula"> Matrícula: </label>
+      <input type="text" class="form-control" id="inputMatricula" placeholder="Digite a sua matricula:">
+    </div>
+    <div class="form-group">
+      <label for="inputCurso"> Curso: </label>
+      <input type="text" class="form-control" id="inputCurso" placeholder="Digite o seu curso:">
+    </div>
+      
+  
+
+    
+    <label>
+      Ano de Ingresso:
+      <input type="text" class="form-control" id="inputAno" placeholder="Digite o seu ano de ingresso:">
+    </label><br>
+    <label>
+      E-mail:
+      <input type="text" class="form-control" id="inputEmail" placeholder="Digite o seu e-mail:">
+    </label><br>
+    <label>
+      Telefone:
+      <input type="text" class="form-control" id="inputTelefone" placeholder="Digite o seu telefone:">
+    </label><br>
+    <label>
+      Formando:
+      
+          <input type="radio" ng-model = "sim" value="sim">Sim
+          <input type="radio" ng-model = "nao" value="nao">Não
+      
+    </label>
+  
+    <button type="submit" class="btn btn-primary">Escolher certificado</button><br>   
+    <button type="submit" class="btn btn-primary">Enviar</button> 
+  </form>
+  <!-- <form>
+    <div class="form-group">
+      <input type="email" #email class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite o seu e-mail:">
+    </div>
+    <div class="form-group">
+      <input type="password" #senha class="form-control" id="exampleInputPassword1" placeholder="Digite a sua senha:">
+      <a id="aviso" routerLink="/cadastro">Não lembra da sua senha? Clique aqui!</a>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="login(email.value,senha.value)">Entrar</button>
+  </form> -->
+</div>
