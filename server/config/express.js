@@ -2,6 +2,7 @@ let express = require('express');
 
 let userRoutes = require('../app/routes/users');
 let graduationsRoutes = require('../app/routes/graduations');
+let attestedRoutes = require('../app/routes/attesteds');
 
 let bodyParser = require('body-parser');
 
@@ -32,6 +33,7 @@ module.exports = function(){
     app.use(initial);
 
     userRoutes(app);
+    attestedRoutes(app);
     graduationsRoutes(app);
     return app;
 };

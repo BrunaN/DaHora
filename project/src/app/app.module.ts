@@ -13,6 +13,9 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GraduationService } from './services/graduation.service';
+import { ActivityComponent } from './activity/activity.component';
+import { ActivityPageComponent } from './activity-page/activity-page.component';
+import { ActivityFormComponent } from './activity-form/activity-form.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { GraduationService } from './services/graduation.service';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    ActivityComponent,
+    ActivityPageComponent,
+    ActivityFormComponent
   ],
   imports: [
     BrowserModule,
