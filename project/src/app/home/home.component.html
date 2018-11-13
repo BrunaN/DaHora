@@ -1,64 +1,34 @@
 <div class="container-fluid">
   <div *ngIf="this.loginService.hasToken()">
-    <h3>
-      Bem-vindo ao Da Hora, {{this.loginService.user.name}}
-    </h3>
-    <h4>
-      Para o curso de
-      <b>{{this.loginService.user.graduation.name}}</b> são necessárias
-      <b>{{this.loginService.user.graduation.hours}}</b> horas de Atividades Complementares
-    </h4>
 
-    <div>
-      <h4>
-        Você possui {{this.loginService.user.hours}} horas de atividades complementares
-      </h4>
-      <h4>
-        Você precisa {{this.loginService.user.graduation.hours - this.loginService.user.hours}} horas para completar suas horas de
-        atividades !
-      </h4>
+    <div class="welcome">
+      <div>
+        Bem-vindo ao Da:Hora, {{this.loginService.user.name}}
+      </div>
+      <div>
+        Para o curso de <b>{{this.loginService.user.graduation.name}}</b> são necessárias
+        <b>{{this.loginService.user.graduation.hours}}</b> horas de Atividades Complementares
+      </div>
     </div>
+    
+    <div class="hours">
+      <div>
+        {{this.loginService.user.hours}} horas cadastradas
+      </div>
+      <div class="right">
+        Faltam {{this.loginService.user.graduation.hours - this.loginService.user.hours}} horas para completar suas atividades!
+      </div>
+    </div>
+
     <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Nome da Atividade Complementar</h5>
-          <p>15 horas</p>
-        </div>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Nome da Atividade Complementar</h5>
-          <p>15 horas</p>
-        </div>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Nome da Atividade Complementar</h5>
-          <p>15 horas</p>
-        </div>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Nome da Atividade Complementar</h5>
-          <p>15 horas</p>
-        </div>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Nome da Atividade Complementar</h5>
-          <p>15 horas</p>
-        </div>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Nome da Atividade Complementar</h5>
-          <p>15 horas</p>
-        </div>
-      </a>
+      <app-activity></app-activity>
+      <app-activity></app-activity>
     </div>
+
     <div class="add">
       <a href="#" routerLink="/activity-form" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Adicionar</a>
     </div>
+
   </div>
 
   <div class="home" *ngIf="!this.loginService.hasToken()">

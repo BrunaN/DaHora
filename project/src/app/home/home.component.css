@@ -2,24 +2,38 @@
     padding: 50px 180px;
 }
 
-h3{
-    padding: 5px 0;
-    border-bottom: 2px solid black;
+.welcome{
+    padding-bottom: 7px;
 }
 
-h4{
-    padding: 5px 0;
-    text-align: justify;
-    color: #545b62;
+.welcome div{
+    font-size: 20px;
+    margin-bottom: 7px;
+}
+
+.hours{
+    border-top: 4px solid #545b62;
+}
+
+.hours div{
+    display: inline-block;
+    width: 50%;
+    font-size: 20px;
+    margin-top: 6px;
+}
+
+.hours .right{
+    text-align: right;
 }
 
 .list-group{
-    /* max-width: 1000px; */
-    padding: 30px;
+    margin-top: 10px;
+    padding: 25px 35px;
+    padding-bottom: 10px;
 }
 
 .add{
-    padding: 0 30px;
+    padding: 0 35px;
 }
 
 .list-group-item{
