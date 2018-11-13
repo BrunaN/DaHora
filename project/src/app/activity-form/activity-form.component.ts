@@ -7,6 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivityFormComponent implements OnInit {
 
+  _id: string;
+  title: string;
+  type: string;
+  hours: number;
+  file: File;
+
+  handleFileInput(event) {
+    if (event.target.files.length) {
+      this.file = event.target.files[0];
+      console.log(this.file);
+    }
+  }
+
   constructor() { }
 
   ngOnInit() {

@@ -3,16 +3,16 @@
     <div class="form-group">
     
       <label for="tituloAtv">Título da atividade</label>
-      <input type="text" id="tituloAtv" class="form-control" placeholder="Digite o título da atividade complementar: ">
+      <input [(ngModel)]="title" name="title" #titleInput type="text" id="tituloAtv" class="form-control" placeholder="Digite o título da atividade complementar: ">
     
       <label for="categoriaAtv">Categoria da atividade</label>
-      <input type="text" id="categoriaAtv" class="form-control" placeholder="Digite a categoria da atividade complementar: ">
+      <input [(ngModel)]="type" name="type" #typeInput type="text" id="categoriaAtv" class="form-control" placeholder="Digite a categoria da atividade complementar: ">
 
       <label for="horasAtv">Quantidade de Horas reais da atividade</label>
-      <input type="text" id="qtdHoras" class="form-control" placeholder="Digite a quantidade de horas da atividade complementar: ">
+      <input [(ngModel)]="hours" name="hours" #hoursInput type="text" id="qtdHoras" class="form-control" placeholder="Digite a quantidade de horas da atividade complementar: ">
 
       <label for="certificadoAtv">Certificado de atividade</label>
-      <input type="file" id="certificadoAtv" class="form-control" placeholder="Escolha o certificado da atividade complementar.">
+      <input [(ngModel)]="file" name="file" #fileInput type="file" id="certificadoAtv" class="form-control" placeholder="Escolha o certificado da atividade complementar.">
       <!-- <button type="submit" class="btn btn-primary">Escolher certificado</button><br> -->
       <button type="submit" class="btn btn-primary"> Enviar </button> 
     </div>
