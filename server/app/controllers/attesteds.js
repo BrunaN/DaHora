@@ -3,6 +3,10 @@ let Attested = require('../models/attested')
 module.exports.insertAttested = function(req, res){
     let attested = req.body;
 
+    if (req.file) {
+        attested.file = req.file.filename;
+    }
+
     let promise = Attested.create(attested);
     promise.then(
         function(attested){
