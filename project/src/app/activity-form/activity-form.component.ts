@@ -47,6 +47,10 @@ export class ActivityFormComponent implements OnInit {
     this.attestedService.insertAttested(attested)
                       .subscribe(data => {
                         console.log(data);
+                        this.title = '';
+                        this.type = -1;
+                        this.hours = '';
+                        this.file = '';
                       },
                         error => {
                           console.log(error);
