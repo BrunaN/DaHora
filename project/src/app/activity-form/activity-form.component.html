@@ -9,7 +9,7 @@
     <div class="form-group">
       <label for="categoriaAtv">Categoria da atividade:</label>
         <!-- <select class="form-control" name="categoriaAtv" id="categoriaAtv"> -->
-        <select class="form-control" [(ngModel)]="categoria" name="categoriaAtv" #categoriaAtv="ngModel" id="categoriaAtv">
+        <select class="form-control" [(ngModel)]="type" name="categoriaAtv" #categoriaAtv="ngModel" id="categoriaAtv">
           <option value="-1" disabled="disabled">Selecione a categoria da atividade:</option>
           <option *ngFor="let categoria of categorias" value={{categoria._id}}>{{categoria.name}}</option>
 

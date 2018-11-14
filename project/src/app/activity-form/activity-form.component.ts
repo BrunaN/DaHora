@@ -43,6 +43,7 @@ export class ActivityFormComponent implements OnInit {
 
   insertAttested(event) {
     let attested = new Attested(this._id, this.loginService.user._id, this.title, this.type, this.hours, this.file);
+    console.log(attested);
     this.attestedService.insertAttested(attested)
                       .subscribe(data => {
                         console.log(data);
