@@ -38,3 +38,9 @@
 .nav-link:hover{
     color: #262626;
 }
+
+.btn{
+    background-color: none;
+    background: none;
+    font-size: 18px;
+}
