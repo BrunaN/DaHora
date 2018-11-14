@@ -35,4 +35,14 @@ export class UserService {
             .catch((error: Response) => Observable.throw(error));
     }
 
+    update(token, user: User) {
+        return this.http.put((this.url + '/' + user._id + '?token=' + token ), user)
+                        .map((response: Response) => {
+                            let res = response.json();
+                            let user = new User(res._id, res.name, res.email, res.graduation, res.enrollment, res.password, res.hours);
+                            return user;
+                        })
+                        .catch((error: Response) => Observable.throw(error));
+    }
+
 }

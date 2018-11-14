@@ -7,4 +7,5 @@ module.exports = function(app){
     app.use('/api/users', auth.checkToken);
     app.get('/api/users', controller.getUsers);
     app.get('/api/users/:id', controller.getUser);
+    app.put('/api/users/:id', controller.updateUser)
 }

@@ -31,14 +31,14 @@ export class ActivityFormComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUser(this.loginService.getToken(), this.loginService.getId())
-        .subscribe(data => {
-          this.user = data;
-          this.loginService.get(this.user);
-        },
-          error => {
-            console.log(error);
-          }
-        );
+      .subscribe(data => {
+        this.user = data;
+        this.loginService.get(this.user);
+      },
+        error => {
+          console.log(error);
+        }
+      );
   }
 
   insertAttested(event) {
@@ -46,8 +46,6 @@ export class ActivityFormComponent implements OnInit {
     this.attestedService.insertAttested(attested)
                       .subscribe(data => {
                         console.log(data);
-                        // this.file = undefined;
-                        // this.description = "";
                       },
                         error => {
                           console.log(error);

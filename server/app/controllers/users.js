@@ -70,3 +70,29 @@ module.exports.getUsers = function(req, res){
         }
     )
 }
+
+module.exports.updateUser = function(req, res){
+    let id = req.params.id;
+
+    let user = req.body;
+
+    let promise = User.findByIdAndUpdate(id, user);
+    promise.then(
+        function(user){
+            let promise2 = User.findById(user._id);
+            promise.then(
+                function(new_user){
+                    res.status(200).json(new_user);
+                }
+            ).catch(
+                function(error){
+                    res.status(404).send("Não existe");
+                }
+            )
+        }
+    ).catch(
+        function(error){
+            res.status(404).send("Não existe");
+        }
+    )
+}

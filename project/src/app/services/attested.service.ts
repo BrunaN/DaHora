@@ -54,4 +54,5 @@ export class AttestedService {
         })
         .catch((error: Response) => Observable.throw(error));
     }
+
 }
