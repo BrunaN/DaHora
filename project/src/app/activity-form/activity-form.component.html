@@ -2,19 +2,40 @@
   <form>
     <div class="form-group">
     
-      <label for="tituloAtv">Título da atividade</label>
+      <label for="tituloAtv">Título da atividade:</label>
+      <input name="title" #titleInput type="text" id="tituloAtv" class="form-control" placeholder="Digite o título da atividade complementar">
       <input [(ngModel)]="title" name="title" #titleInput type="text" id="tituloAtv" class="form-control" placeholder="Digite o título da atividade complementar: ">
-    
-      <label for="categoriaAtv">Categoria da atividade</label>
-      <input [(ngModel)]="type" name="type" #typeInput type="text" id="categoriaAtv" class="form-control" placeholder="Digite a categoria da atividade complementar: ">
-
-      <label for="horasAtv">Quantidade de Horas reais da atividade</label>
-      <input [(ngModel)]="hours" name="hours" #hoursInput type="text" id="qtdHoras" class="form-control" placeholder="Digite a quantidade de horas da atividade complementar: ">
-
-      <label for="certificadoAtv">Certificado de atividade</label>
-      <input [(ngModel)]="file" name="file" #fileInput type="file" id="certificadoAtv" class="form-control" placeholder="Escolha o certificado da atividade complementar.">
-      <!-- <button type="submit" class="btn btn-primary">Escolher certificado</button><br> -->
-      <button type="submit" class="btn btn-primary" (click)="insertAttested($event)"> Enviar </button> 
     </div>
+
+    <div class="form-group">
+      <label for="categoriaAtv">Categoria da atividade:</label>
+        <!-- <select class="form-control" name="categoriaAtv" id="categoriaAtv"> -->
+        <select class="form-control" [(ngModel)]="categoria" name="categoriaAtv" #categoriaAtv="ngModel" id="categoriaAtv">
+          <option value="-1" disabled="disabled">Selecione a categoria da atividade:</option>
+          <option *ngFor="let categoria of categorias" value={{categoria._id}}>{{categoria.name}}</option>
+
+          <option value="0">Iniciação à pesquisa ou ensino ou atividades de extensão em áreas correlatadas ao curso</option>
+          <option value="1">Artístico culturais e esportivas</option>
+          <option value="2">Participação e/ou organização de eventos em áreas correlatas</option>
+          <option value="3">Experiências ligadas à formação profissional e/ou correlatas</option>
+          <option value="4">Produção Técnica e/ou Científica em áreas correlatas</option>
+          <option value="5">Vivências de gestão</option>
+          <option value="6">Outras atividades</option>
+        </select>
+    </div>
+      
+    <div class="form-group">
+      <label for="horasAtv">Quantidade de Horas da atividade:</label>
+      <input name="hours" #hoursInput type="number" id="qtdHoras" class="form-control" placeholder="Digite a quantidade de horas da atividade complementar">
+      <input [(ngModel)]="hours" name="hours" #hoursInput type="text" id="qtdHoras" class="form-control" placeholder="Digite a quantidade de horas da atividade complementar: ">
+    </div>
+      
+    <div class="form-group">
+      <label for="certificadoAtv">Certificado de atividade:</label>
+      <input name="file" #fileInput type="file" id="certificadoAtv" placeholder="Escolha o certificado da atividade complementar">      
+      <input [(ngModel)]="file" name="file" #fileInput type="file" id="certificadoAtv" class="form-control" placeholder="Escolha o certificado da atividade complementar.">
+    </div>
+
+      <button type="submit" class="btn btn-primary"> Enviar </button> 
   </form>
 </div>

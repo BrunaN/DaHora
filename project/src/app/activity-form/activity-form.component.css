@@ -1,11 +1,19 @@
-#cdthrscomp{
-    /* justify-content: center; */
+#cdthrscomp {
+    justify-content: center;
     display: flex;
-    
-    left: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     position: absolute;
 }
 
-.mat-radio-button ~ .mat-radio-button {
-    padding-right: 16px;
-  }
+input {
+    width: 100%;
+}
+
+option {
+    font-size: 13px;
+}
+.form-group {
+    width: 450px;
+}
