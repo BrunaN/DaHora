@@ -4,7 +4,7 @@ module.exports.insertAttested = function(req, res){
     let attested = req.body;
 
     if (req.file) {
-        attested.file = req.file.filename;
+        attested._file = req.file.filename;
     }
 
     let promise = Attested.create(attested);

@@ -30,7 +30,7 @@
       
     <div class="form-group">
       <label for="certificadoAtv">Certificado de atividade:</label>
-      <input [(ngModel)]="file" name="file" #fileInput type="file" id="certificadoAtv" placeholder="Escolha o certificado da atividade complementar.">
+      <input [(ngModel)]="_file" name="file" #fileInput type="file" id="certificadoAtv" placeholder="Escolha o certificado da atividade complementar.">
       
       <button type="submit" class="btn btn-primary" (click)="insertAttested($event)"> Enviar </button>     
     </div>

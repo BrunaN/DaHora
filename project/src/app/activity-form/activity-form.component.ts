@@ -16,14 +16,14 @@ export class ActivityFormComponent implements OnInit {
   title: string;
   type: string;
   hours: number;
-  file: File;
+  _file: File;
 
   user = User;
 
   handleFileInput(event) {
     if (event.target.files.length) {
-      this.file = event.target.files[0];
-      console.log(this.file);
+      this._file = event.target.files[0];
+      console.log(this._file);
     }
   }
 
@@ -42,7 +42,7 @@ export class ActivityFormComponent implements OnInit {
   }
 
   insertAttested(event) {
-    let attested = new Attested(this._id, this.loginService.user._id, this.title, this.type, this.hours, this.file);
+    let attested = new Attested(this._id, this.loginService.user._id, this.title, this.type, this.hours, this._file);
     console.log(attested);
     this.attestedService.insertAttested(attested)
                       .subscribe(data => {
@@ -50,7 +50,7 @@ export class ActivityFormComponent implements OnInit {
                         this.title = '';
                         this.type = -1;
                         this.hours = '';
-                        this.file = '';
+                        this._file = '';
                       },
                         error => {
                           console.log(error);

@@ -20,21 +20,21 @@ export class AttestedService {
     insertAttested(attested: Attested) {
 
         let formData = new FormData();
-        if (attested.file) {
-            formData.append('file', attested.file);
+        if (attested._file) {
+            formData.append('_file', attested._file);
         }
 
         for (let key in attested) {
-            if (key != 'file' && attested[key]) {
+            if (key != '_file' && attested[key]) {
                 console.log(key, attested[key]);
                 formData.append(key, attested[key]);
             }
         }
 
-        return this.http.post(this.url, attested)
+        return this.http.post(this.url, formData)
             .map((response: Response) => {
                 let res = response.json();
-                let attested = new Attested(res._id, res.user, res.title, res.type, res.hours, res.file);
+                let attested = new Attested(res._id, res.user, res.title, res.type, res.hours, res._file);
                 console.log(attested);
                 this.attesteds.push(attested);
                 return attested;
@@ -48,7 +48,7 @@ export class AttestedService {
             console.log(response);
             this.attesteds = [];
             for (let attested of response.json()) {
-                this.attesteds.push(new Attested(attested._id, user, attested.title, attested.type, attested.hours, attested.file));
+                this.attesteds.push(new Attested(attested._id, user, attested.title, attested.type, attested.hours, attested._file));
             }
             return this.attesteds;
         })

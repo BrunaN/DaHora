@@ -19,7 +19,7 @@ module.exports = function(){
             type: Number,
             required: true
         },
-        file:{
+        _file:{
             type: String,
             required: true
         }
