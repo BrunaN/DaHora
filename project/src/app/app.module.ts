@@ -16,6 +16,7 @@ import { GraduationService } from './services/graduation.service';
 import { ActivityComponent } from './activity/activity.component';
 import { ActivityPageComponent } from './activity-page/activity-page.component';
 import { ActivityFormComponent } from './activity-form/activity-form.component';
+import { AttestedService } from './services/attested.service';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { ActivityFormComponent } from './activity-form/activity-form.component';
     HttpModule,
     routing
   ],
-  providers: [UserService, LoginService, GraduationService],
+  providers: [UserService, LoginService, GraduationService, AttestedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

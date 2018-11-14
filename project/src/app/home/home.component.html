@@ -21,8 +21,11 @@
     </div>
 
     <div class="list-group">
-      <app-activity></app-activity>
-      <app-activity></app-activity>
+      <div *ngFor="let attested of attesteds">
+          <app-activity [attested] = attested>
+
+          </app-activity>
+      </div> 
     </div>
 
     <div class="add">
@@ -30,6 +33,8 @@
     </div>
 
   </div>
+
+  
 
   <div class="home" *ngIf="!this.loginService.hasToken()">
     <div class="row" id="first">

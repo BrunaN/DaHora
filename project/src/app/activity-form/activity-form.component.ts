@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Attested } from '../models/attested.model';
+import { UserService } from '../services/User.service';
+import { LoginService } from '../services/login.service';
+import { User } from '../models/user.model';
+import { AttestedService } from '../services/attested.service';
 
 @Component({
   selector: 'app-activity-form',
@@ -13,6 +18,8 @@ export class ActivityFormComponent implements OnInit {
   hours: number;
   file: File;
 
+  user = User;
+
   handleFileInput(event) {
     if (event.target.files.length) {
       this.file = event.target.files[0];
@@ -20,9 +27,31 @@ export class ActivityFormComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  constructor(private attestedService: AttestedService, private userService: UserService, private loginService: LoginService) { }
 
   ngOnInit() {
+    this.userService.getUser(this.loginService.getToken(), this.loginService.getId())
+        .subscribe(data => {
+          this.user = data;
+          this.loginService.get(this.user);
+        },
+          error => {
+            console.log(error);
+          }
+        );
+  }
+
+  insertAttested(event) {
+    let attested = new Attested(this._id, this.loginService.user._id, this.title, this.type, this.hours, this.file);
+    this.attestedService.insertAttested(attested)
+                      .subscribe(data => {
+                        console.log(data);
+                        // this.file = undefined;
+                        // this.description = "";
+                      },
+                        error => {
+                          console.log(error);
+                        });
   }
 
 }
