@@ -6,11 +6,12 @@
         Bem-vindo ao Da:Hora, {{this.loginService.user.name}}
       </div>
       <div>
-        Para o curso de <b>{{this.loginService.user.graduation.name}}</b> são necessárias
+        Para o curso de
+        <b>{{this.loginService.user.graduation.name}}</b> são necessárias
         <b>{{this.loginService.user.graduation.hours}}</b> horas de Atividades Complementares
       </div>
     </div>
-    
+
     <div class="hours">
       <div>
         {{this.loginService.user.hours}} horas cadastradas
@@ -20,21 +21,32 @@
       </div>
     </div>
 
-    <div class="list-group">
-      <div *ngFor="let attested of attesteds">
+    <div *ngIf="attesteds.length >= 1">
+      <div class="list-group">
+        <div *ngFor="let attested of attesteds">
           <app-activity [attested] = attested>
 
           </app-activity>
-      </div> 
+        </div>
+      </div>
+
+      <div class="add">
+        <a href="#" routerLink="/activity-form" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Adicionar</a>
+      </div>
     </div>
 
-    <div class="add">
-      <a href="#" routerLink="/activity-form" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Adicionar</a>
+    <div class="zero" *ngIf="attesteds.length == 0">
+      Você não possui nenhuma atividade Complementar
+      <div>
+        <a href="#" routerLink="/activity-form" class="btn btn-secondary active" role="button" aria-pressed="true">Adicionar</a>
+      </div>
     </div>
+
+
 
   </div>
 
-  
+
 
   <div class="home" *ngIf="!this.loginService.hasToken()">
     <div class="row" id="first">
