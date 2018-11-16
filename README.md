@@ -20,6 +20,8 @@ Não esqueça do
 
 `npm start`
 
+Por padrão o servidor executa em `http:\\localhost:3000`.
+
 ## Para rodar o projeto angular
 
 Na pasta project, execute (**em outro terminal**):
@@ -27,3 +29,5 @@ Na pasta project, execute (**em outro terminal**):
 npm install
 ng serve
 ```
+
+Por padrão o site executa em `http:\\localhost:4200`. 
