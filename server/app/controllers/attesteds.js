@@ -1,16 +1,27 @@
 let Attested = require('../models/attested')
+let User = require('../models/user')
 
 module.exports.insertAttested = function(req, res){
     let attested = req.body;
 
     if (req.file) {
         attested._file = req.file.filename;
+        console.log(req.file);
     }
 
     let promise = Attested.create(attested);
     promise.then(
         function(attested){
-            res.status(201).json(attested);
+            let promise2 =  User.findByIdAndUpdate({_id: attested.user}, {$inc: {hours: attested.hours}}, {new: true});
+            promise2.then(
+                function(user){
+                    res.status(201).json(attested);
+                }
+            ).catch(
+                function(error){
+                    res.status(500).json(error);        
+                }
+            )
         }
     ).catch(
         function(error){

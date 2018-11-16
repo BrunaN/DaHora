@@ -18,7 +18,7 @@ export class ActivityFormComponent implements OnInit {
   hours: number;
   _file: File;
 
-  user = User;
+  user: User;
 
   handleFileInput(event) {
     if (event.target.files.length) {
@@ -47,10 +47,12 @@ export class ActivityFormComponent implements OnInit {
     this.attestedService.insertAttested(attested)
                       .subscribe(data => {
                         console.log(data);
+                        return;
                         this.title = '';
                         this.type = -1;
                         this.hours = '';
                         this._file = '';
+                        this.loginService.user.hours += attested.hours;
                       },
                         error => {
                           console.log(error);
