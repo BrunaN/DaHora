@@ -8,17 +8,11 @@ MongoDB, Node e @angular/cli@6.0.8;
 
 Na pasta server, execute:
 
-`npm install`
-
-Caso windows, faça:
-`mongo < graduations.js`
-
-Caso Linux, faça: 
-`./mongo < graduations.js`
-
-Não esqueça do 
-
-`npm start`
+```
+npm install
+mongo < graduations.js
+npm start
+```
 
 Por padrão o servidor executa em `http:\\localhost:3000`.
 
