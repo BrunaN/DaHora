@@ -16,7 +16,7 @@ npm start
 
 ## Para rodar o projeto angular
 
-Na pasta project, execute (em outro terminal):
+Na pasta project, execute (**em outro terminal**):
 ```
 npm install
 ng serve
