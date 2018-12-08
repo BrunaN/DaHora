@@ -1,7 +1,7 @@
 //Para executar basta fazer mongo < graduations.js ou no Linux: ./mongo < graduations.js
 
 use daHora;
-//db.graduations.drop();
+db.graduations.drop();
 
 db.graduations.insert({
     id: "1",

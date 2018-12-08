@@ -16,7 +16,11 @@
       <div>
         {{this.loginService.user.hours}} horas cadastradas
       </div>
-      <div class="right">
+      <div class="right" *ngIf="this.loginService.user.hours > this.loginService.user.graduation.hours">
+        Suas horas complementares foram concluídas!
+      </div>
+
+      <div class="right" *ngIf="this.loginService.user.hours <= this.loginService.user.graduation.hours">
         Faltam {{this.loginService.user.graduation.hours - this.loginService.user.hours}} horas para completar suas atividades!
       </div>
     </div>
