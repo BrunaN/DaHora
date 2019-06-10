@@ -10,8 +10,9 @@ import { User } from '../models/user.model';
 @Injectable()
 export class AttestedService {
 
-    url: string = 'http://localhost:3000/api/attesteds';
-    urlAttestedsFromUser: string = 'http://localhost:3000/api/user/';
+    url: string = 'http://localhost:8080/dahora/api/attesteds';
+    urlAttestedsFromUser: string = 'http://localhost:8080/dahora/api/users/';
+    
 
     attesteds: Attested[] = [];
 
