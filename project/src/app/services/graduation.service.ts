@@ -8,7 +8,7 @@ import { Graduation } from '../models/graduation.model';
 @Injectable()
 export class GraduationService {
 
-    url: string = 'http://localhost:3000/api/graduations';
+    url: string = 'http://localhost:8080/dahora/api/graduations';
 
     graduations: Graduation [] = [];
 
@@ -28,6 +28,7 @@ export class GraduationService {
     getGraduations() {
         return this.http.get(this.url)
             .map((response: Response) => {
+                console.log("Teste");
                 this.graduations = [];
                 for (let graduation of response.json()) {
                     this.graduations.push(new Graduation(graduation._id, graduation.id, graduation.name, graduation.hours));
