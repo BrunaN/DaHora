@@ -9,7 +9,7 @@ import { User } from '../models/user.model';
 @Injectable()
 export class LoginService {
 
-    url: string = 'http://localhost:8080/dahora/api/user/login';
+    url: string = 'http://localhost:3000/api/user/login';
 
     user: User;
 
@@ -49,8 +49,8 @@ export class LoginService {
 
     login(email, password){
         return this.http.post(this.url, {
-            enrollment: email,
-            password: password
+            email,
+            password
         }).map((response: Response) => {
             let res =  response.json();
             this.setToken(res.token);

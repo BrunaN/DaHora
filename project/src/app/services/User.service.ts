@@ -9,7 +9,7 @@ import { LoginService } from './login.service';
 @Injectable()
 export class UserService {
 
-    url: string = 'http://localhost:8080/dahora/api/users';
+    url: string = 'http://localhost:3000/api/users';
 
     constructor ( private http: Http ) {  }
 
