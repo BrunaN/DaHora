@@ -55,14 +55,4 @@ export class AttestedService {
         .catch((error: Response) => Observable.throw(error));
     }
 
-    delete(attested: Attested) {
-        return this.http.delete((this.url + '/' + attested._id))
-                        .map((response: Response) => {
-                            this.attesteds.splice( this.attesteds.indexOf(attested), 1 );
-
-                            console.log(this.attesteds);
-                        })
-                        .catch((error: Response) => Observable.throw(error));
-    }
-
 }
