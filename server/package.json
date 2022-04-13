@@ -10,7 +10,7 @@
   "author": "Bruna Neves",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.6.1",
+    "async": "^3.2.2",
     "node-cmd": "^3.0.0",
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
